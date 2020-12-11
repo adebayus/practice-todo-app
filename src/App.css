@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
+:root{
+  --alabaster : #F9F9F9;
+  --pictonBlue : #248EEB;
+  --rawSienna : #CD7753;
+  --trendyPink : #945C9E;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+  background-color: var(--alabaster) ;
+}
+.App { 
+  height: auto;
+  width: 700px;
+  margin: 100px auto;
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form-todo { 
+  margin-bottom: 50px;
+}
+
+.container-prepend {
+  padding: 0 !important;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
+  width: 25px;
+  height: auto;
+  background-color: white;
+  border-right: none;
+  border-left: 1px solid #ced4da;
+  border-top: 1px solid #ced4da;
+  border-bottom: 1px solid #ced4da;
+  border-radius: .2rem 0 0 .2rem;
+}
+.container-prepend .prepend-text{
+  padding: 0 !important;
+  background-color: transparent;
+  border: none;
+  
+}
+
+.prepend-text svg{
+  transform: scaleX(-1);
+}
+
+.input-todo{ 
+  border-radius: .2rem 0 0 .2rem;
+  border-left: none;
+  border-right: 1px solid #ced4da;
+  border-top: 1px solid #ced4da;
+  border-bottom: 1px solid #ced4da;
+}
+.input-todo:focus{
+  border-color: none;
+  box-shadow: none ;
+}
+
+.btn-submit{ 
+  width:100%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+.btn-submit svg { 
+  margin-right: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+
+.wrapper-todo-list{
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-radius: .2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title{
+  align-items: center;
+  padding: 10px 30px;
+  height: 60px;
+  border-bottom: 1px solid #ced4da;
+  display: flex;
+  align-items: center;
+}
+
+.title h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.wrapper-todo {
+  padding:30px 30px;
+}
+hr{
+  margin:0;
 }
