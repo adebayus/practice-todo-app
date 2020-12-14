@@ -9,7 +9,7 @@ function Todo(props) {
                 display: "flex",
                 alignItems:"center",
                 margin:"0"
-            }}>
+            }} onClick={() => props.deletedata(props.id)}>
                 <Col style={
                         {
                             margin:"0px",
@@ -21,7 +21,7 @@ function Todo(props) {
                             margin:"0px",
                             padding: "0px"
                         }
-                    }>{props.name}</p>
+                    }>{props.name} ini keynya {props.id} </p>
                 </Col>
             </Row>
             <hr/>

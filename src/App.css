@@ -58,8 +58,9 @@ body{
   border-bottom: 1px solid #ced4da;
 }
 .input-todo:focus{
-  border-color: none;
+  border-color: #ced4da;
   box-shadow: none ;
+
 }
 
 .btn-submit{ 
