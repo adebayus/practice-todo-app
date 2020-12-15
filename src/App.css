@@ -10,14 +10,15 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body{
+
   background-color: var(--alabaster) ;
 }
 .App { 
   height: auto;
   width: 700px;
   margin: 100px auto;
+
   
 }
 
