@@ -4,35 +4,26 @@ import {Button, Col, Form, InputGroup } from 'react-bootstrap';
 import Todo from './component/Todo'
 
 function App() {
-    const [data, setData] = useState([{
-        id: 1,
-        detail: "badAss"
-    },{
-        id: 2,
-        detail: "baasdasdasddAss"
-    },{
-        id: 3,
-        detail: "badAasdasdasdasdss"
-    }])
+    const [data, setData] = useState([])
     const [todo, setTodo] = useState("")
     console.log(data,"ini data lama")
 
 
     
 
-    const changeEdit = (event, index) => {
+    const changeEdit = (indexId, indexDetail) => {
         // e.preventDefault();
-        console.log(index, "asdasdasd")
+        console.log(indexId, indexDetail, "inside changeEdit")
         const copyData = data
-        const dataIndex = data.findIndex(data => data.id === index )
-        console.log(dataIndex)
-        // const updatedData = {
-        //     id : 2,
-        //     detail: "fuxeeee"
-        // }
+        const dataIndex = data.findIndex(data => data.id === indexId )
+        // console.log(dataIndex)
+        const updatedData = {
+            id : indexId,
+            detail: indexDetail
+        }
         // const newData = updatedData
-        // copyData[dataIndex] = newData
-        // setData([...copyData])
+        copyData[dataIndex] = updatedData
+        setData([...copyData])
         // console.log([...copyData],"asdasdasdasd")
         // // dataIndex.detail = "fuxeee";
         // // console.log(copyData, "ini data baru")
@@ -125,6 +116,7 @@ function App() {
                           <Todo key={value.id} 
                           id={value.id} 
                           deletedata = {deleteData}
+                          changeEdit = {changeEdit}
                           name={value.detail}/>
                       )
                   })}

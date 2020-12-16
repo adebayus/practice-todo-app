@@ -4,7 +4,12 @@ import ModalEdit from './ModalEdit'
 
 function Todo(props) {
     const [modalShow, setModalShow] = React.useState(false);
+    // const [newDetail, setNewDetail] =  React.useState("")
 
+
+    const closedModal =(on) =>{
+        setModalShow(on)
+    }
     // const styleCol = {
     //     width: "100%",
     //     height: "100%"
@@ -33,7 +38,7 @@ function Todo(props) {
                             margin:"0px",
                             padding: "0px"
                         }
-                    }>{props.name} ini keynya {props.id} </p>
+                    }>{props.name} </p>
                 </Col>
                 <Col lg={2}>
                     <Row>
@@ -58,7 +63,7 @@ function Todo(props) {
                 </Col>
             </Row>
             <hr/>
-            <ModalEdit show={modalShow} onHide={() => setModalShow(false)}></ModalEdit>
+            <ModalEdit id={props.id} detail={props.name}  changeedit={props.changeEdit} closedModal={closedModal} show={modalShow} onHide={() => setModalShow(false)} ></ModalEdit>
         </div>
     )
 }

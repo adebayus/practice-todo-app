@@ -1,16 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Modal, Button, Form, InputGroup } from 'react-bootstrap'
 
 function ModalEdit(props) {
+    const [edit, setEdit] = useState(props.detail)
+    const [isshow,setIsShow ] = useState(props.show)
+    console.log(isshow)
+    const addNewDetail = (e) => {
+        e.preventDefault();
+        props.changeedit(props.id, edit);
+        props.closedModal(false)
+    }
+
+    const changeHandelerEdit =  (event) => {
+        setEdit(event.target.value)
+        // console.log(event.target.val)
+    }
+
+    console.log(edit)
     return (
     <Modal
-      {...props}
+    //   {...props}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
+      show={props.show}
+      onHide={props.onHide}
+      animation= {false}
       centered >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton={true}>
             <Modal.Title id="contained-modal-title-vcenter">
-                Modal heading
+                *Dont Enter Just Click Submit 
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -26,19 +44,18 @@ function ModalEdit(props) {
                         </InputGroup.Text>
                     </InputGroup.Prepend>
                     <Form.Control
-                    //nChange={}
-                    //value={} 
+                    onChange={changeHandelerEdit}
+                    value={edit}
                     className="input-todo"
                     type="text" 
-                    placeholder="Whats needs to be done ?" required/>
+                    placeholder="edit your todo" required/>
                 </InputGroup>  
             </Form>
             
         </Modal.Body>
         <Modal.Footer>
             <Button onClick={props.onHide} size="md" variant="danger">Cancel</Button>
-            <Button onClick={props.onHide}>Close</Button>
-            
+            <Button onClick={ addNewDetail }  size="md" variant="primary">Submit</Button>      
         </Modal.Footer>
     </Modal>
     )
