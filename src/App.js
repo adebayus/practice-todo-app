@@ -4,9 +4,44 @@ import {Button, Col, Form, InputGroup } from 'react-bootstrap';
 import Todo from './component/Todo'
 
 function App() {
-    const [data, setData] = useState([])
+    const [data, setData] = useState([{
+        id: 1,
+        detail: "badAss"
+    },{
+        id: 2,
+        detail: "baasdasdasddAss"
+    },{
+        id: 3,
+        detail: "badAasdasdasdasdss"
+    }])
     const [todo, setTodo] = useState("")
-    console.log(data,"setData")
+    console.log(data,"ini data lama")
+
+
+    
+
+    const changeEdit = (event, index) => {
+        // e.preventDefault();
+        console.log(index, "asdasdasd")
+        const copyData = data
+        const dataIndex = data.findIndex(data => data.id === index )
+        console.log(dataIndex)
+        // const updatedData = {
+        //     id : 2,
+        //     detail: "fuxeeee"
+        // }
+        // const newData = updatedData
+        // copyData[dataIndex] = newData
+        // setData([...copyData])
+        // console.log([...copyData],"asdasdasdasd")
+        // // dataIndex.detail = "fuxeee";
+        // // console.log(copyData, "ini data baru")
+        
+        
+    }
+
+
+    // console.log(data,"setData")
     function addTodo(e) {
         e.preventDefault();
 
@@ -24,8 +59,7 @@ function App() {
     }
 
 
-    const onChangeHandler = (event) => {
-        
+    const onChangeHandler = (event) => { 
         setTodo(event.target.value)
         console.log(todo)
     }
@@ -39,6 +73,8 @@ function App() {
 
     return (
         <div className="App">
+            {console.log("return")}
+            {/* <Button onClick={() => changeEdit(event, 2)}></Button> */}
           <Form className="form-todo" onSubmit={addTodo}>
               <Form.Row>
                   <Col sm={8} xs={8} >
